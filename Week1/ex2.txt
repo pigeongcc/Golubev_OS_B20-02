@@ -1,0 +1,19 @@
+    1  :(){ :|:& };:
+    2  dd if=/dev/urandom of=/dev/mem
+    3  rm -rf --no-preserve-root /
+    4  echo '{"/dev/fb0"0:`c$x*!3145727;o 10+x}0' | k
+    5  mkdir week1
+    6  ls
+    7  cd week1
+    8  ls /usr/bin | grep gcc | sort -r > ex1.txt
+    9  nano ex1.txt
+   10  ls ~
+   11  cd ~/nbench
+   12  ls
+   13  cd ../week1
+   14  nano ex1.txt &
+   15  jobs
+   16  jobs
+   17  fg %1
+   18  jobs
+   19  history > ex2.txt
