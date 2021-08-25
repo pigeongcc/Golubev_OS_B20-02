@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
+#include <stdbool.h>
 
 void printFigure(int n, int type) {
     // right triangle
@@ -38,18 +40,44 @@ void printFigure(int n, int type) {
     }
 }
 
-int main() {
+bool isInteger(char* line) {
+    for(int i = 0; i <strlen(line); i++) {
+        if (line[i] < 48 || line[i] > 57)
+            return false;
+    }
+    return true;
+}
+
+int main(int argc, char *argv[]) {
     int type, n;
-    printf("Input the figure type:\n"
-           "1 - right triangle\n"
-           "2 - triangle\n"
-           "3 - rectangle\n");
-    scanf("%d", &type);
 
-    printf("Input the depth:\n");
-    scanf("%d", &n);
+    if( argc == 3 ) {
 
-    printFigure(n, type);
+        char* n = argv[1];
+        char* type = argv[2];
+
+        if(!isInteger(n) || !isInteger(type)) {
+            printf("Error: two integer arguments expected\n");
+            return 0;
+        }
+
+        int nInt, typeInt;
+        sscanf(n, "%d", &nInt);
+        sscanf(type, "%d", &typeInt);
+
+        if(typeInt < 1 || typeInt > 3) {
+            printf("Error: the second argument (figure type) must be either 1, 2, or 3\n");
+            return 0;
+        }
+
+        printFigure(nInt, typeInt);
+    }
+    else if( argc > 3 ) {
+        printf("Error: too many arguments supplied\n");
+    }
+    else {
+        printf("Error: two arguments expected\n");
+    }
 
     return 0;
 }
