@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+   4215	    640	      8	   4863	   12ff	ex1test
