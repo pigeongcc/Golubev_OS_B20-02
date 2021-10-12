@@ -1,0 +1,5 @@
+8 KB = 8096 bytes = 2^13 bytes
+Therefore we need 13 bits of virtual address for offset.
+16-13 = 3 bits are left for specifying the virtual page number.
+2^3 = 8 pages are in the page table.
+Hence there are 8 entries for a single-level linear page table.

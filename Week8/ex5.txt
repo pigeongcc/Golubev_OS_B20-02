@@ -1,0 +1,30 @@
+PHYSICAL ADDRESS provides direct access to the memory. It is unsafe
+to allow programs using physical addresses because they could
+access the memory segments they are not supposed to access (e.g. access
+the memory cells from another process' address space).
+
+The notion of virtual address refers to virtual memory.
+Virtual memory is an illusory extension of physical memory.
+
+The main purposes of virtual memory are
+1) to make it possible to execute programs too large to be loaded into the
+physical memory
+2) to provide guarantee that programs' address spaces will not overlap on
+the physical level
+
+The idea of virtual memory came to replace the principle of programs division
+by overlays. So, these two strategies have something in common.
+
+Virtual memory is implemented using paging. That is, the address space of the
+program gets divided into pages. Each page is a continious range of
+VIRTUAL ADDRESSES. Pages are mapped onto the physical memory. There is no
+need to load all the pages to the memory at once (solution for virt.memory
+purpose 1).
+
+VIRTUAL ADDRESS is mapped onto PHYSICAL ADDRESS depending on the PAGE containing
+this virtual address. This work is done by memory management unit (MMU):
+
+[virt.address] ---(MMU)---> [phys.address]
+
+Each program has its own page, so overlapping between different programs gets
+impossible (solution for virt.memory purpose 2)
