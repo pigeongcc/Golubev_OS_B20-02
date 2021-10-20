@@ -1,0 +1,7 @@
+-rw-rw-r-- 1 pigeon_gcc pigeon_gcc 19 окт 20 16:26 _ex3.txt
+-rw-rw-r-- 1 pigeon_gcc pigeon_gcc 19 окт 20 16:26 _ex3.txt
+-rwxrw-rwx 1 pigeon_gcc pigeon_gcc 19 окт 20 16:26 _ex3.txt
+-rwxrwxrwx 1 pigeon_gcc pigeon_gcc 19 окт 20 16:26 _ex3.txt
+660 for ex3.txt means the following permissions: R,W for Owner; R,W for Group; nothing for Other.
+775 for ex3.txt means the following permissions: R,W,X for Owner; R,W,X for Group; R,X for Other.
+777 for ex3.txt means the following permissions: R,W,X for Owner; R,W,X for Group; R,W,X for Other.
