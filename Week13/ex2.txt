@@ -1,0 +1,25 @@
+RECOVERY THROUGH PREEMPTION
+- This method is highly dependent on the nature of the resource. Moreover it doesn't seem to have a simple implementation. I suppose it's not the best choice to handle deadlocks.
+
+RECOVERY THROUGH KILLING PROCESSES
+- It is the crudest yet simplest way to resolve a deadlock. Where possible, it is better to kill a process that can be rerun from the beginning with no side effects.
+- I suppose it's a straightforward approach with a limited scope of application. the only advantage is that it's simple.
+
+RECOVERY THROUGH ROLLBACK
+- This method involves checkpoiniting. It means that the process state is written to a file so that it can be restarted later. The process A holding the resource requested by the process B resets to an earlier checkpoint when it did not have the resource. Then the resource is assigned to one of the deadlocked processes.
+
+- Better than avoidance because there's no need for the system to support safe and unsafe states monitoring.
+
+PREVENTION
+- The idea is to assure that at least one of the deadlock conditions is never satisfied: Mutual-Exclusion, Hold-and-Wait, No-Preemption, Circular wait.
+
+- Better than other approaches because the deadlock is impossible hance there is no need to recover from it or avoid it.
+
+AVOIDANCE
+- To avoid deadlocks, the system must be able to decide whether granting a resource is safe or not and make the allocation only when it is safe. From a safe state the system can guarantee that all processes will finish. From an unsafe state, no such guarantee can be given.
+- Banker's algorithm: checks to see if granting the request leads to an unsafe state.  If so, the request is denied. If granting the request leads to a safe state, it is carried out. An unsafe state does not have to lead to deadlock, but the algorithm cannot count on this behavior. The banker’s algorithm considers each request as it occurs, seeing
+whether granting it leads to a safe state. If it does, the request is granted; otherwise, it is postponed until later.
+
+- Better than recovery through preemption because it's not dependent on the nature of the resource (however, it has to know the maximum number of possibly needed resources).
+- Better than recovery through rollback because it's easier to implement rather than checkpointing.
+- Better than recovery through killing processes because it's a more intelligent approach.
